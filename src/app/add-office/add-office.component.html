@@ -1,0 +1,48 @@
+<body>
+        <div class="center">
+            <!-- <img src="contact.jpg" alt="" width="200" height="100" align="right"> -->
+            <br><h2 style="color: rgb(101, 36, 230)">Office Form:-</h2>
+           
+    
+        </div>
+    </body>
+    
+<div class="container">
+<form [formGroup]="officeform" autocomplete="off">
+<div class="mb-1">
+<label for="name" class="form-label"></label>
+            <div class="input-group has-validation">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" formControlName="officeType" type="radio" id="Office" value="Office">
+                    <label class="form-check-label" for="Office">DocumentType</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" formControlName="officeType" type="radio" id="Admin" value="Admin">
+                    <label class="form-check-label" for="Admin">EndDate</label>
+                </div>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="documentType" class="form-label">DocumentType</label>
+            <div class="input-group has-validation">
+                <input type="text" maxlength="100" [ngClass]="{'form-control': true, 'is-invalid': officeform.get('documentType')?.invalid &&
+                (officeform.get('documentType')?.dirty || officeform.get('documentType')?.touched)}" id="documentType" name="documentType"
+                    formControlName="documentType" placeholder="DocumentType">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="endDate" class="form-label">EndDate</label>
+            <p-calendar [showIcon]="true" inputId="icon" formControlName="endDate" [ngClass]="{'form-control': true, 'is-invalid': officeform.get('enddate')?.invalid &&
+            (officeform.get('dob')?.dirty || officeform.get('dob')?.touched)}"></p-calendar>
+        </div>
+
+        <div class="mb-1">
+            {{officeform.value |json}}
+        </div>
+        <button class="btn btn-primary mb-3">Submit</button>
+</form>
+
+</div>

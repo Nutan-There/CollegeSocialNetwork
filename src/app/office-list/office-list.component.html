@@ -1,0 +1,30 @@
+<div class="container" style="margin-top: 20px;">
+<p-table [value]="officeList" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+[rowsPerPageOptions]="[10,25,50]">
+<ng-template pTemplate="header">
+<tr>
+    <th>Id</th>
+    <th>DocumentType</th>
+    <th>EndDate</th>
+</tr>
+</ng-template>
+<ng-template pTemplate="body" let-office>
+    <tr [ngClass]="{'inActive': office.isActive == false}">
+    <td>{{office.id}}</td>
+    <td>{{office.documentType}}</td>
+    <td>{{office.endDate | date:'d/M/yyyy'}}</td>
+    <td>
+        <a pButton pRipple type="button" [routerLink]="['/update.office',office.id]" icon="pi pi-office-edit"
+            class="p-button-rounded"></a>
+        <a pButton pRipple type="button" (click)="remove(office.id)" style="margin-left: 5px;"
+            icon="pi pi-trash" class="p-button-rounded"></a>
+    </td>
+</tr>
+
+</ng-template>
+<ng-template pTemplate="paginatorleft">
+    <a [routerLink]="['/add-office']"class="btn btn-primary">Add New</a>
+</ng-template>
+</p-table>
+</div>

@@ -1,0 +1,30 @@
+
+*{
+    padding : 0px;
+    margin : 0px;
+    box-sizing: border-box;
+    align-items: center;
+}
+body
+ {
+        height: 600px;
+        margin: 0;
+        display: flow-root;
+        grid-template-rows: 500px 100px;
+        grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+        align-items: center;
+        justify-items: center;
+        background: linear-gradient(135deg, #dce3e7, #598cb6);
+ }
+.text
+{
+        margin-top: 10%;
+        margin-left: 50px;
+        margin-right: 50%;
+        text-align: justify;
+}
+.photo
+{
+
+    margin-right: 150px;
+}

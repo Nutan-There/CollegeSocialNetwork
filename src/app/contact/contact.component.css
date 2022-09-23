@@ -1,0 +1,24 @@
+*{
+    padding : 0px;
+    margin : 0px;
+    box-sizing: border-box; 
+    align-items: center;
+}
+body {
+        height: 550px;
+        margin: 0;
+        display: flow-root;
+        grid-template-rows: 500px 100px;
+        grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+        align-items: center;
+        justify-items: center;
+        background: linear-gradient(135deg, #c5e671, #a7b659);
+    }
+  
+.center{
+        margin-top: 5%;
+        margin-left: 70px;
+        padding: 50px;
+        margin-right: 70px;
+}
+

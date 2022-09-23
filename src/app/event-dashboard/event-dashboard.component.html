@@ -1,0 +1,77 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color:aliceblue">Angular Crud</h1>
+        <div class="d-flex">
+            <button (click)="clickAddEvent()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success"> Add Event</button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">EventId</th>
+            <th scope="col">EventName</th>
+            <th scope="col">EventSponser</th>
+            <th scope="col">Venue</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor =" let row of eventData">
+         <!----    <td>1</td>
+            <td>dance</td>
+            <td>tiktok</td>
+            <td>pune</td>  ---->
+            <!---<td>{{row.id}}</td> --->
+            <td>{{row.EventId}}</td>
+            <td>{{row.EventName}}</td>
+            <td>{{row.EventSponser}}</td>
+            <td>{{row.Venue}}</td>
+          
+            <td>
+                <button (click)="onEdit(row)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>
+                <button (click)="deleteEvent(row)" class="btn btn-danger mx-3">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Event Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label for="text" class="form-label">EventId</label>
+                  <input type="text" formControlName="EventId" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="text" class="form-label">EventName</label>
+                  <input type="text" formControlName="EventName"  class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="text" class="form-label">EventSponser</label>
+                    <input type="text" formControlName="EventSponser"  class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="text" class="form-label">Venue</label>
+                    <input type="text" formControlName="Venue"  class="form-control" id="exampleInputPassword1">
+                  </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button"*ngIf="showAdd" (click)="postEventDetails()" class="btn btn-primary">Add</button>
+          <button type="button" *ngIf="showUpdate" (click)="updateEventDetails()" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

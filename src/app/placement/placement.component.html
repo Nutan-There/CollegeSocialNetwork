@@ -1,0 +1,92 @@
+<!-- <body> -->
+<br>
+<br>
+<br>
+<br>
+  <div class="container">
+
+
+    <div class="center">
+     <!-- <img src="contact.jpg" alt="" width="200" height="100" align="right"> -->
+    <br><h2 style="color: rgb(9, 5, 17)">Placement Officer Form:-</h2>
+    </div>
+    <!-- </body> -->
+
+    <form class="mt-3" [formGroup]="placementform" (ngSubmit)="onSubmit()">
+
+
+        
+
+        <div class="form-row">
+          <div class="form-group col">
+              <label for="username">Requirements</label>
+              <input type="text"  formControlName="requirements" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" />
+              <div *ngIf="submitted && f['requirements'].errors" class="invalid-feedback">
+                  <div *ngIf="f['requirements'].errors['required']">Requirements is required</div>
+              </div>
+          </div>
+        </div>
+
+
+        <div class="form-row">
+          <div class="form-group col">
+              <label for="placedStudent">Placed Student</label>
+              <input type="text" formControlName="placedStudent" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['placedstudent'].errors }" />
+              <div *ngIf="submitted && f['placedStudent'].errors" class="invalid-feedback">
+                  <div *ngIf="f['placedStudent'].errors['required']">Placed Student required</div>
+              </div>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+          <button (click)="addPlacements()" class="btn btn-primary">
+              Submit
+          </button>
+        </div>
+
+
+
+    </form>
+
+    <br>
+    <br>
+
+    <div>
+      <h3>Placement  Assigned</h3>
+      <hr class="line">
+  </div>
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col">Requirements</th>
+              <th scope="col">Placedstudent</th>
+              <th scope="col">Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let data of placementdata;">
+              <td>{{data.studentId}}</td>
+              <td>{{data.requirements}}</td>
+              <td>{{data.placedStudent}}</td>
+
+              <td style="white-space: nowrap">
+                <button (click)="editUser(data.studentId)" class="btn btn-sm btn-warning btn-edit-user">
+                  Edit
+                </button>
+                
+                <button (click)="deleteUser(data.studentId)" class="btn btn-sm btn-danger btn-delete-user">
+                  Delete
+                </button>
+
+
+            </td>
+
+
+          </tr>
+      </tbody>
+  </table>
+
+  </div>
